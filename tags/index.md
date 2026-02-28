@@ -1,8 +1,8 @@
 ---
 layout: page
-title: 概述
+title: 标签
 aside: false
 outline: false
 ---
 
-<HomeGithubLike />
+<TagsPage />

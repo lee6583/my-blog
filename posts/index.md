@@ -1,8 +1,8 @@
 ---
 layout: page
-title: 概述
+title: 文章
 aside: false
 outline: false
 ---
 
-<HomeGithubLike />
+<PostsPage />

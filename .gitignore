@@ -1,8 +1,36 @@
+# Dependencies
 node_modules
-.DS_Store
+
+# Build / VitePress
 dist
 dist-ssr
+.vitepress/cache
+.vitepress/words-by-day.json
+
+# Local cache / temp
 cache
 .cache
 .temp
 *.local
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor / IDE (optional)
+.idea
+*.swp
+*.swo
+*~
