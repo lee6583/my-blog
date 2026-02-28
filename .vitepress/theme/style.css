@@ -148,6 +148,7 @@
 }
 .VPDoc.has-aside .content-container {
   max-width: 1488px !important;
+  padding-left: 236px !important;
 }
 @media (min-width: 960px) {
   .VPDoc:not(.has-sidebar) .container {
@@ -155,19 +156,51 @@
     justify-content: center;
     max-width: 1562px !important;
   }
+  /* 左侧目录样式：仅文章页有 aside 时 */
+  .VPDoc.has-aside .aside-container {
+    left: 24px;
+    right: auto;
+    width: 200px;
+    padding-right: 12px;
+    padding-left: 0;
+    border-right: 1px solid var(--vp-c-divider);
+  }
 }
 .aside-container {
   position: fixed;
   top: 0;
+  width: 200px;
   padding-top: calc(
     var(--vp-nav-height) + var(--vp-layout-top-height, 0px) +
       var(--vp-doc-top-height, 0px) + 10px
   ) !important;
-  width: 224px;
+  font-size: 13px;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
   scrollbar-width: none;
+}
+.aside-container .outline-title,
+.aside-container .VPDocAsideOutline .outline-title,
+.VPDocAsideOutline .outline-title {
+  display: none !important;
+}
+.aside-container h2 {
+  display: none !important;
+}
+.aside-container .outline-link {
+  padding: 2px 0;
+}
+
+/* 小屏不显示顶部目录条，直接显示文章侧边多级标题 */
+@media (max-width: 1279px) {
+  .VPLocalNav {
+    display: none !important;
+  }
+
+  .VPDoc .aside {
+    display: block !important;
+  }
 }
 
 /* 自定义h2的间距 */
@@ -175,4 +208,220 @@
   margin: 0px 0 16px;
   padding-top: 24px;
   border: none;
+}
+
+/* ---------- 首页 GitHub 风格布局 ---------- */
+
+/* 隐藏默认 hero / features，只用自定义布局 */
+.VPHome .hero,
+.VPHome .features {
+  display: none;
+}
+
+.VPHome .main {
+  padding-top: 24px;
+}
+
+.gh-home {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.gh-left {
+  flex: 0 0 280px;
+}
+
+.gh-right {
+  flex: 1;
+  min-width: 0;
+}
+
+.gh-profile-card {
+  padding: 20px 20px 24px;
+  border-radius: 16px;
+  background-color: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider, rgba(60, 60, 67, 0.12));
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+  text-align: center;
+}
+
+.gh-avatar {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--vp-c-bg);
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.12);
+  margin-bottom: 16px;
+}
+
+.gh-profile-main {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.gh-name {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.gh-bio {
+  margin: 4px 0 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--vp-c-text-2);
+}
+
+.gh-edit-btn {
+  margin-top: 10px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--vp-c-divider, rgba(60, 60, 67, 0.16));
+  background-color: var(--vp-c-bg-alt, #f6f6f7);
+  color: var(--vp-c-text-1);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.gh-edit-btn:hover {
+  background-color: var(--vp-c-default-soft);
+}
+
+.gh-follow {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+  color: var(--vp-c-text-2);
+}
+
+.gh-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--vp-c-divider, rgba(60, 60, 67, 0.12));
+  margin-bottom: 16px;
+}
+
+.gh-tab {
+  position: relative;
+  padding: 8px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--vp-c-text-2);
+}
+
+.gh-tab--active {
+  color: var(--vp-c-text-1);
+  font-weight: 600;
+}
+
+.gh-tab--active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background-color: var(--vp-c-brand-3);
+}
+
+.gh-section {
+  margin-top: 8px;
+}
+
+.gh-section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.gh-section-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.gh-section-subtitle {
+  font-size: 0.85rem;
+  color: var(--vp-c-text-2);
+}
+
+.gh-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.gh-card {
+  display: block;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--vp-c-divider, rgba(60, 60, 67, 0.12));
+  background-color: var(--vp-c-bg-soft);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    transform 0.15s ease, background-color 0.15s ease;
+}
+
+.gh-card:hover {
+  border-color: var(--vp-c-brand-2);
+  background-color: var(--vp-c-bg);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
+  transform: translateY(-1px);
+}
+
+.gh-card-title {
+  margin: 0 0 6px;
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.gh-card-desc {
+  margin: 0 0 8px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--vp-c-text-2);
+}
+
+.gh-card-meta {
+  font-size: 0.8rem;
+  color: var(--vp-c-text-2);
+}
+
+.gh-card-meta span::before {
+  content: "· ";
+}
+
+@media (max-width: 960px) {
+  .gh-home {
+    flex-direction: column;
+  }
+
+  .gh-left {
+    flex: none;
+  }
+
+  .gh-profile-card {
+    text-align: left;
+    display: flex;
+    gap: 16px;
+  }
+
+  .gh-avatar {
+    width: 96px;
+    height: 96px;
+    margin-bottom: 0;
+  }
+
+  .gh-profile-main {
+    align-items: flex-start;
+  }
 }
