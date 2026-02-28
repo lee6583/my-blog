@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 import { set_sidebar } from './utils/auto_sidebar.mjs'  // 同级 utils 目录
 
 export default defineConfig({
-  base: "/docs-demp/",
+  base: "/my-blog/",
   head: [
   // 网站图标
   ["link", { rel: "icon", href: "/logo.png" }],
