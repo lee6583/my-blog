@@ -14,9 +14,9 @@ export default defineConfig({
       (function() {
         // 只在 GitHub Pages 正式地址下加载不蒜子脚本
         if (typeof location === 'undefined') return;
-        var isProd = location.hostname === 'lee6583.github.io' && location.pathname.startsWith('/docs-demp/');
+        var isProd = location.hostname === 'lee6583.github.io' && location.pathname.startsWith('/my-blog/');
         if (!isProd) {
-          console.log('[Busuanzi] skipped (not lee6583.github.io/docs-demp/)');
+          console.log('[Busuanzi] skipped (not lee6583.github.io/my-blog/)');
           return;
         }
 
@@ -56,19 +56,19 @@ export default defineConfig({
             text:'技术栈',
             items:[
             { 
-             text: '<span style="display:inline-flex;align-items:center;"><img src="/docs-demp/html.svg" style="width:16px;height:16px;margin-right:6px;">HTML</span>',
+             text: '<span style="display:inline-flex;align-items:center;"><img src="/html.svg" style="width:16px;height:16px;margin-right:6px;">HTML</span>',
              link:"/"
             },
             { 
-             text: '<span style="display:inline-flex;align-items:center;"><img src="/docs-demp/css.svg" style="width:16px;height:16px;margin-right:6px;">CSS</span>',
+             text: '<span style="display:inline-flex;align-items:center;"><img src="/css.svg" style="width:16px;height:16px;margin-right:6px;">CSS</span>',
              link: '/front-end/react/index.md' 
             },
             { 
-             text: '<span style="display:inline-flex;align-items:center;"><img src="/docs-demp/js.svg" style="width:16px;height:16px;margin-right:6px;">JavaScript</span>',
+             text: '<span style="display:inline-flex;align-items:center;"><img src="/js.svg" style="width:16px;height:16px;margin-right:6px;">JavaScript</span>',
              link: '/markdown-examples' 
             },
             { 
-             text: '<span style="display:inline-flex;align-items:center;"><img src="/docs-demp/typescript.svg" style="width:16px;height:16px;margin-right:6px;">TypeScript</span>',
+             text: '<span style="display:inline-flex;align-items:center;"><img src="/typescript.svg" style="width:16px;height:16px;margin-right:6px;">TypeScript</span>',
              link: '/markdown-examples' 
             },
            ],
